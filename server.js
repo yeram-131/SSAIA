@@ -1,8 +1,9 @@
 ﻿// server.js 파일
 
-require('dotenv').config();
+// require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const Data = require('./models/data');
 
 const app = express();
 const PORT = process.env.PORT || 3000; // API 서버를 3000번 포트로 열 거야.
@@ -26,8 +27,6 @@ app.get('/', (req, res) => {
     res.send('API 서버가 잘 실행되고 있어!');
 });
 
-// server.js 파일 (2번 뒤에 추가)
-const Data = require('./models/data'); // 3번에서 만든 데이터 모델 불러오기
 
 // 4. API 라우트: 모든 데이터 가져오기
 app.get('/api/data', async (req, res) => {
