@@ -1,6 +1,5 @@
 ﻿// server.js 파일
 
-require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
