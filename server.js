@@ -1,16 +1,20 @@
 ﻿// server.js 파일
 
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 3000; // API 서버를 3000번 포트로 열 거야.
+const PORT = process.env.PORT || 3000; // API 서버를 3000번 포트로 열 거야.
 
 // 1. MongoDB 연결
-const MONGO_URI = 'mongodb+srv://syrm0310:Vo90JNSZBVtexQzc@clusterssaia.jc8e14a.mongodb.net/?retryWrites=true&w=majority&appName=ClusterSSAIAcmd';
-
-mongoose.connect(process.env.MONGO_URI, {dbName: 'schoolDB'})
-    .then(() => console.log('✅ MongoDB 연결 성공!', mongoose.connection.name))
+mongoose.connect(process.env.MONGO_URI, {
+    dbName: 'schoolDB',
+    serverSelectionTimeoutMS: 30000, // 30초로 늘림
+    socketTimeoutMS: 45000,          // 45초로 늘림
+    family: 4                        // IPv4 사용 강제
+})
+    .then(() => console.log('✅ MongoDB 연결 성공!'))
     .catch(err => console.error('❌ MongoDB 연결 오류:', err));
 
 // JSON 형식의 요청 본문을 파싱하기 위한 미들웨어 설정
