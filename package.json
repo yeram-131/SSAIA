@@ -1,0 +1,25 @@
+{
+  "name": "notices-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeram-131/SSAIA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeram-131/SSAIA/issues"
+  },
+  "homepage": "https://github.com/yeram-131/SSAIA#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.19.1"
+  }
+}
