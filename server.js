@@ -10,7 +10,6 @@ const PORT = process.env.PORT || 3000; // API 서버를 3000번 포트로 열 �
 
 // 1. MongoDB 연결
 mongoose.connect(process.env.MONGO_URI, {
-    dbName: 'schoolDB',
     serverSelectionTimeoutMS: 30000, // 30초로 늘림
     socketTimeoutMS: 45000,          // 45초로 늘림
     family: 4                        // IPv4 사용 강제
