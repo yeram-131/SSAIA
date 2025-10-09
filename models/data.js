@@ -1,20 +1,26 @@
-// models/data.js ÆÄÀÏ
+ï»¿// models/data.js íŒŒì¼
 
 const mongoose = require('mongoose');
 
-// µ¥ÀÌÅÍ ½ºÅ°¸¶ Á¤ÀÇ (³× ¿¢¼¿/DB ±¸Á¶¿¡ ¸Â°Ô ÇÊµå¸¦ ¹Ù²ã¾ß ÇØ!)
+// ë°ì´í„° ìŠ¤í‚¤ë§ˆ ì •ì˜ (ë„¤ ì—‘ì…€/DB êµ¬ì¡°ì— ë§ê²Œ í•„ë“œë¥¼ ë°”ê¿”ì•¼ í•´!)
 const dataSchema = new mongoose.Schema({
-    // ¿¹½Ã: ¿¢¼¿¿¡ 'ÀÌ¸§', '³ªÀÌ', 'Á¡¼ö' ÇÊµå°¡ ÀÖ¾ú´Ù¸é
-    //ÀÌ¸§: { type: String, required: true },         // required´Â ÇÊ¼ö Ç×¸ñ, ¾øÀ¸¸é db¿¡ ÀúÀå ÀÚÃ¼°¡ ¾ÈµÇ°í ¿¡·¯³²
-    //³ªÀÌ: { type: Number },
-    //Á¡¼ö: { type: Number },
-    //Å©·Ñ¸µ³¯Â¥: { type: Date, default: Date.now },     // default´Â ÀÚµ¿Ã¤¿ì±â Ç×¸ñ, ¾øÀ¸¸é ÀÚµ¿À¸·Î Ã¤¿ö¼­ ÀúÀå
+    // ì˜ˆì‹œ: ì—‘ì…€ì— 'ì´ë¦„', 'ë‚˜ì´', 'ì ìˆ˜' í•„ë“œê°€ ìˆì—ˆë‹¤ë©´
+    //ì´ë¦„: { type: String, required: true },         // requiredëŠ” í•„ìˆ˜ í•­ëª©, ì—†ìœ¼ë©´ dbì— ì €ì¥ ìì²´ê°€ ì•ˆë˜ê³  ì—ëŸ¬ë‚¨
+    //ë‚˜ì´: { type: Number },
+    //ì ìˆ˜: { type: Number },
+    //í¬ë¡¤ë§ë‚ ì§œ: { type: Date, default: Date.now },     // defaultëŠ” ìë™ì±„ìš°ê¸° í•­ëª©, ì—†ìœ¼ë©´ ìë™ìœ¼ë¡œ ì±„ì›Œì„œ ì €ì¥
     title: { type: String },
     link: { type: String },
     date: { type: String },
     content: { type: String },
 
-}, { collection: 'notices' }); // <-- ÄÃ·º¼Ç ÀÌ¸§ Á¤È®È÷ ³Ö¾î!
+    // ğŸ’¡ ë‚´ìš© ë³€ê²½ ê°ì§€ë¥¼ ìœ„í•œ í•´ì‹œ í•„ë“œ ì¶”ê°€
+    content_hash: {
+        type: String,
+        required: false,
+    }
 
-// Data ¸ğµ¨À» ´Ù¸¥ ÆÄÀÏ¿¡¼­ ¾µ ¼ö ÀÖ°Ô ³»º¸³»±â
+}, { collection: 'notices' }); // <-- ì»¬ë ‰ì…˜ ì´ë¦„ ì •í™•íˆ ë„£ì–´!
+
+// Data ëª¨ë¸ì„ ë‹¤ë¥¸ íŒŒì¼ì—ì„œ ì“¸ ìˆ˜ ìˆê²Œ ë‚´ë³´ë‚´ê¸°
 module.exports = mongoose.model('Data', dataSchema);
