@@ -20,7 +20,7 @@ const dataSchema = new mongoose.Schema({
         required: false,
     }
 
-}, { collection: 'notices' }); // <-- 컬렉션 이름 정확히 넣어!
+}, { collection: 'co_notice' }); // <-- 컬렉션 이름 정확히 넣어!
 
 // Data 모델을 다른 파일에서 쓸 수 있게 내보내기
 module.exports = mongoose.model('Data', dataSchema);
